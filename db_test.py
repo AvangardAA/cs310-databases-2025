@@ -21,5 +21,17 @@ for (table,) in tables:
 		print(" | ".join(str(v) for v in row))
 	print(f"\n{"=" * 40}\n")
 
+with open("DML/queries.sql", "r") as f:
+	script = f.read()
+	queries = [q.strip() for q in script.split(';') if q.strip()]
+	for i, query in enumerate(queries, start=1):
+		res = con.execute(query)
+		if res.description:
+			columns = [d[0] for d in res.description]
+			rows = res.fetchall()
+			print(" | ".join(columns))
+			for row in rows:
+				print(" | ".join(str(v) for v in row))
+		print("\n")
 
 con.close()
