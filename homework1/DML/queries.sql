@@ -52,3 +52,14 @@ ORDER BY price DESC;
 SELECT * FROM Reviews
 ORDER BY rating DESC
 LIMIT 3;
+
+-- UNION (AN 25/09: there are no duplicates, but if added will still work)
+SELECT p.name AS product_name
+FROM Products p
+JOIN Order_Items oi ON p.product_id = oi.product_id
+
+UNION
+
+SELECT p.name AS product_name
+FROM Products p
+JOIN Reviews r ON p.product_id = r.product_id;
