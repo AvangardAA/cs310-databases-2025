@@ -1,6 +1,6 @@
 INSERT INTO customers
 SELECT
-	i as customer_id
+	i as customer_id,
 	'Customer' || i AS customer_name,
 	CASE (i % 5)
 		WHEN 0 THEN 'Europe'
