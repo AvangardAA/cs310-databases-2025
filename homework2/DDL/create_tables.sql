@@ -1,5 +1,5 @@
 CREATE TABLE customers(
-	customers_id INTEGER PRIMARY KEY,
+	customer_id INTEGER PRIMARY KEY,
 	customer_name TEXT,
 	region TEXT
 );
